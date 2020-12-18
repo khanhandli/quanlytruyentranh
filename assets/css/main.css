@@ -2,6 +2,14 @@ body {
 	background-color: #fff;
 }
 
+body,html,.app{
+	overflow-y: hidden;
+}
+
+.scroll {
+	overflow-x: scroll;
+	height: 100vh;
+}
 .header {
 	background-color: #100e17;
 	width: 100%;
@@ -91,13 +99,16 @@ body {
 /* NAVBAR */
 
 .nav {
-	margin-top: 100px;
+	height: 100vh;
 	background-color: #100e17;
-	position: fixed;
+/* 	position: fixed;
 	top: 0;
 	left: 0;
-	bottom: 0;
+	bottom: 0; */
 	width: 280px;
+	border-right: 1px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(90deg,#ff8a00,#ff8a00);
 }
 
 .nav__list {
@@ -128,4 +139,35 @@ body {
 	margin-right: 4px;
 	color: #ccc;
 	text-align: center;
+}
+
+
+.picture {
+	border:  2px solid rgba(16, 14, 23, 0.7);	
+	margin: 14px 0;
+	border-radius: 4px;
+	position: relative;
+}
+
+.picture > h2 {
+	background-color: #ccc;
+	text-align: center;
+	border-bottom: 1px solid;
+}
+
+.picture__img > img{
+	width: 100%;
+    height: 100%;
+	padding: 4px 0 20px 0;
+}
+.picture--text {
+	display:  inline-block;
+	position: absolute;
+	color: black;
+	font-weight: 500;
+	font-size: 1.4rem;
+	background-color: #ccc;
+	border-radius: 6px;
+	padding: 0px 4px;
+	bottom: 0;
 }
