@@ -1,0 +1,131 @@
+body {
+	background-color: #fff;
+}
+
+.header {
+	background-color: #100e17;
+	width: 100%;
+	border-bottom: 1px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(90deg,#ff8a00,#e52e71);
+    height: 100px;
+}
+
+.header__flex {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.header__info {
+	display: flex;
+	font-weight: 500;
+	font-size: 1.8rem;
+	justify-content: center;
+	align-items:  center;
+	color: white;
+}
+
+.header__info > i {
+	line-height: 24px;
+	font-size: 2.2rem;
+}
+
+.header__info > span {
+	margin: 0 8px 0 4px;
+}
+
+.header__info > span::before{
+    content: "";
+    border-width: 10px 12px;
+    border-style: solid;
+    border-color: var(--White-color) transparent transparent transparent;
+    position: absolute;
+    right: 60px;
+    top: 32px;
+}
+.header--title {
+	display: inline-block;
+	color: white;
+	font-size: 2rem;
+	font-weight: 500;
+	margin-left: 8px;
+}
+.header__img {
+	display: flex;
+	align-items: center;
+	width:  100%;
+	padding-top: 6px ;
+}
+.header__img > i {
+	color: white;
+	font-size: 6rem;
+	display: inline-block;
+}
+.header-nav {
+	display: flex;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+} 
+
+.header-nav__item {
+	list-style: none;
+	text-align: center;
+	margin: 0 10px;
+}
+
+.header-nav__item--text {
+	font-size: 1.6rem;
+	color: white;
+	font-weight: 400;
+}
+
+.header-nav__item--text:hover {
+	text-decoration: none;
+	opacity: 0.8;
+	color: white;
+} 
+
+
+/* NAVBAR */
+
+.nav {
+	margin-top: 100px;
+	background-color: #100e17;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 280px;
+}
+
+.nav__list {
+	margin: 0 40px;
+}
+.nav__list--item {
+	list-style: none;
+	margin: 40px 0;
+	cursor: pointer;
+
+}
+
+.nav__list--item:hover {
+	opacity: 0.7;
+}
+
+.nav__item--text > a{
+	font-size: 1.4rem;
+	font-weight: 500;
+	color: #ccc;
+	padding-left: 4px;
+	text-decoration: none;
+}
+
+.nav--icon {
+	font-size: 1.8rem;
+	width: 20px;
+	margin-right: 4px;
+	color: #ccc;
+	text-align: center;
+}
