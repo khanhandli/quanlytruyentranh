@@ -11,19 +11,19 @@
                                         <ul>
                                             <li class="nav__list--item">
                                                 <i class="fal fa-plus-square nav--icon"></i>
-                                                <span class="nav__item--text"><a href="#">Đăng Truyện Ngắn</a></span>
+                                                <span class="nav__item--text"><a href="../update/UpdateTN.php">Đăng Truyện Ngắn</a></span>
                                             </li>
                                             <li class="nav__list--item">
                                                 <i class="fal fa-plus-square nav--icon"></i>
-                                                <span class="nav__item--text"><a href="../../assets/php/DSPhongHoc.php">Đăng Truyện Cười</a></span>
+                                                <span class="nav__item--text"><a href="../update/UpdateTC.php">Đăng Truyện Cười</a></span>
                                             </li>
                                             <li class="nav__list--item">
                                                 <i class="far fa-plus nav--icon"></i>
-                                                <span class="nav__item--text"><a href="../../assets/php/DSGiaoVien.php">Đăng Truyện Ma</a></span>
+                                                <span class="nav__item--text"><a href="../update/UpdateTM.php">Đăng Truyện Ma</a></span>
                                             </li>
                                             <li class="nav__list--item">
                                                 <i class="fal fa-calendar-plus nav--icon"></i>
-                                                <span class="nav__item--text"><a href="../../assets/php/DKSDPhong.php">Đăng Truyện Tiểu Thuyết</a></span>
+                                                <span class="nav__item--text"><a href="../update/UpdateTTT.php">Đăng Truyện Tiểu Thuyết</a></span>
                                          </li>
                                         </ul>
                                     </div>

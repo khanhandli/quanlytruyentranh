@@ -39,22 +39,22 @@
                     </div>
                     <ul class="header-nav">
                         <li class="header-nav__item">
-                            <a href="#" class="header-nav__item--text">Truyện Ngắn</a>
+                            <a href="../php/TN.php" class="header-nav__item--text">Truyện Ngắn</a>
                         </li>
                         <li class="header-nav__item">
-                            <a href="#" class="header-nav__item--text">Truyện Cười</a>
+                            <a href="../php/TC.php" class="header-nav__item--text">Truyện Cười</a>
                         </li>
                         <li class="header-nav__item">
-                            <a href="#" class="header-nav__item--text">Truyện Ma</a>
+                            <a href="../php/TM.php" class="header-nav__item--text">Truyện Ma</a>
                         </li>
                         <li class="header-nav__item">
-                            <a href="#" class="header-nav__item--text">Truyện Tiểu Thuyết</a>
+                            <a href="../php/TTT.php" class="header-nav__item--text">Truyện Tiểu Thuyết</a>
                         </li>
                         <li class="header-nav__item">
-                            <a href="#" class="header-nav__item--text">Tác Giả</a>
+                            <a href="../php/TG.php" class="header-nav__item--text">Tác Giả</a>
                         </li>
                         <li class="header-nav__item">
-                            <a href="#" class="header-nav__item--text">Tổng hợp</a>
+                            <a href="../php/TH.php" class="header-nav__item--text">Tổng hợp</a>
                         </li>
                     </ul>
                 </div>

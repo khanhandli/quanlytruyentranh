@@ -1,5 +1,5 @@
 <?php 
-    require_one('resoures/header.php')
+    require_once('resoures/header.php');
  ?>
         <div class="body">
 
@@ -7,7 +7,7 @@
         		<div class="row">
         			<div class="c-3">
                          <?php 
-                            require_one('resoures/nav.php')
+                            require_once('resoures/nav.php');
                           ?>
                     </div>
                     <div class="c-9">
@@ -19,6 +19,9 @@
                             <div class="col c-3">
                                 <div class="picture">
                                     <h2>Tấm Cám</h2>
+                                    <div class="index">
+                                        <span>1</span>
+                                    </div>
                                     <div class="picture__img">
                                         <img src="assets/img/anh1.jpeg" alt="">
                                     </div>
