@@ -7,7 +7,7 @@ CREATE TABLE users(user VARCHAR(255),password VARCHAR(255));
 
 
 INSERT INTO users
-    VALUES ('nhuy','123');
+    VALUES ('huydat','123');
 
 
 
@@ -21,8 +21,6 @@ CREATE TABLE TruyenNgan(
 --Triger tu đọng cập nhập vào truyện tổng hợp
 CREATE TRIGGER truyen_ngan AFTER INSERT ON TruyenNgan
 FOR EACH ROW
-    INSERT INTO TruyenTH(id,TenTruyen,TrangBia,SoChuong,TenTG)
-    VALUES (NEW.id,NEW.TenTruyen,NEW.TrangBia,NEW.SoChuong,NEW.TenTG);
 
 --tạo bảng truyện cười
 	CREATE TABLE TruyenCuoi(
@@ -85,6 +83,5 @@ CREATE TABLE TacGia(
     NamSinh VARCHAR(255),
     QuocTich VARCHAR(255));
 
-
 INSERT INTO TacGia(TenTG,GioiTinh,NamSinh,QuocTich)
-    VALUES('nhuy','NAM','2000','VN');
+    VALUES('Nguyễn văn mười','NAM','2000','VN');

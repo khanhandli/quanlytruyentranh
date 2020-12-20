@@ -55,7 +55,7 @@
                                     <div class="form__input">
                                         <label for="tentacgia">Tên Tác Giả:</label>
                                          <select class="input" name="tentacgia" id="tentacgia">
-                                                <option value="<?=$tentacgia?>"><?=$tentacgia?></option>
+                                                <option value="<?=$tentacgia2?>"><?=$tentacgia2?></option>
                                                 <?php 
                                                         $sql = 'SELECT TenTG FROM TacGia';
                                                     $employeeList = executeResult($sql);

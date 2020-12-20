@@ -35,6 +35,7 @@
                         <form style="background-color: #FF9900;" class="form" action="../php/TM.php" method="post" enctype="multipart/form-data">
                             <div class="row form-flex">
                                 <div class="c-6">
+                                     <input type="number" name="id" value="<?=$id?>" hidden>
                                     <div class="form__input">
                                         <label for="tentruyen">Tên Truyện:</label>
                                         <input class="input" type="text" id="tentruyen" name="tentruyen" value="<?=$tentruyen2?>">
@@ -55,7 +56,7 @@
                                     <div class="form__input">
                                         <label for="tentacgia">Tên Tác Giả:</label>
                                          <select class="input" name="tentacgia" id="tentacgia">
-                                                <option value="<?=$tentacgia?>"><?=$tentacgia?></option>
+                                                <option value="<?=$tentacgia2?>"><?=$tentacgia2?></option>
                                                 <?php 
                                                         $sql = 'SELECT TenTG FROM TacGia';
                                                     $employeeList = executeResult($sql);
