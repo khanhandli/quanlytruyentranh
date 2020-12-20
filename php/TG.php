@@ -33,7 +33,7 @@
                             <span>Huy Đạt DH8C6</span>
                             <ul>
                                 <li class="header__info--text">Hồ Sơ</li>
-                                <li class="header__info--text"><a href="">Thoát</a></li>
+                                <li class="header__info--text"><a href="../index.php">Thoát</a></li>
                             </ul>
                         </div>
                     </div>
@@ -61,46 +61,41 @@
         </header>
         <?php 
     require_once('../resoures/dbhelp.php');
-    $upload_directory = __DIR__ . DIRECTORY_SEPARATOR . "photo/";
-    $id1 = $tentruyen  = $sochuong = $tentacgia = "";
+    $id1 = $tentg  = $gioitinh = $namsinh = $quoctich = "";
 
     if (!empty($_POST)) {
-        if (isset($_POST['tentruyen'])) {
-            $tentruyen = $_POST['tentruyen'];
+        if (isset($_POST['tentg'])) {
+            $tentg = $_POST['tentg'];
         }
 
 
-        if (isset($_POST['sochuong'])) {
-            $sochuong = $_POST['sochuong'];
+        if (isset($_POST['gioitinh'])) {
+            $gioitinh = $_POST['gioitinh'];
 
         }
 
-        if (isset($_POST['tentacgia'])) {
-            $tentacgia = $_POST['tentacgia'];
+        if (isset($_POST['namsinh'])) {
+            $namsinh = $_POST['namsinh'];
+
+        }
+        if (isset($_POST['quoctich'])) {
+            $quoctich = $_POST['quoctich'];
 
         }
         if (isset($_POST['id'])) {
             $id1 = $_POST['id'];
         }
-        $anh = $_FILES['anh']['name'];
-
-                if($anh != null)
-                {
-                $path = "photo/";
-                $tmp_name = $_FILES['anh']['tmp_name'];
-                $anh = $_FILES['anh']['name'];
-
-                move_uploaded_file($tmp_name,$path.$anh);
+     
         if ($id1 != '') {
             //update 
-            $sql = "UPDATE TruyenNgan SET  TenTruyen= '$tentruyen', TrangBia ='$anh',  SoChuong= '$sochuong',  TenTG= '$tentacgia' WHERE id = " .$id1;
-        }else if($tentruyen != ''){ 
+            $sql = "UPDATE TacGia SET  TenTG= '$tentg', GioiTinh ='$gioitinh',  NamSinh= '$namsinh',  QuocTich= '$quoctich' WHERE id = " .$id1;
+        }else if($tentg != ''){ 
             //insert
-            $sql = "INSERT INTO TruyenNgan(TenTruyen,TrangBia,SoChuong,TenTG)
-                VALUES('$tentruyen', '$anh', '$sochuong', '$tentacgia')";
+            $sql = "INSERT INTO TacGia(TenTG,GioiTinh,NamSinh,QuocTich)
+                VALUES('$tentg', '$gioitinh', '$namsinh', '$quoctich')";
 
         }
-    }
+    
         execute($sql);
 }
 
@@ -126,35 +121,28 @@
                                 <button class="btn-timkiem">Tìm</button>
                             </form>
                             <label for="search" class="fas fa-search function--icon"></label>
-                            <a href="../update/UpdateTN.php" class="function--link"><i class="fas fa-plus"></i></a>
+                            <a href="../update/UpdateTG.php" class="function--link"><i class="fas fa-plus"></i></a>
                         </div>
 
                         </div>
                         <div class="row scroll">
-                            <!-- <div class="col c-3">
-                                <div class="picture">
-                                    <h2>Tấm Cám</h2>
-                                    <div class="index">
-                                        <span>1</span>
-                                    </div>
-                                    <div class="picture__img">
-                                        <img src="../assets/img/anh1.jpeg" alt="">
-                                    </div>
-                                    <img src="assets/img/label.png" alt="">
-                                    <div class="picture--text">
-                                        <span class="picture__text">Full &nbsp13 Chuong</span>
-                                    </div>
-                                </div>
-                                <span>Ten tac gia</span>
-                                <div class="picture__btn">
-                                    <button  class= "btn1 btn-delete">Xóa</button>
-                                    <button class= "btn1 btn-setting">Sửa</button>
-                                </div>
-                            </div> -->
+                            <table class="table table-danger table-hover" >
+                                <thead>
+                                    <tr>
+                                        <th>STT</th>
+                                        <th>Tên Tác Giả</th>
+                                        <th>Giới Tính</th>
+                                        <th>Năm Sinh</th>
+                                        <th>Quốc Tịch</th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                               </thead>
+                                <tbody>
+                                    
                             <?php 
-
                             //Lay danh muc tu db
-                            $limit = 8;
+                            $limit = 10;
                             $page = 1;
                             if(isset($_GET['page'])){
                             $page = $_GET['page'];
@@ -165,42 +153,34 @@
                             }
                             $firstIndex = ($page - 1) * $limit;
                                     if (isset($_GET['timkiem']) && $_GET['timkiem'] != '') {
-                                        $sql = "SELECT * FROM TruyenNgan WHERE TenTruyen LIKE '%".$_GET['timkiem']."%'";    
+                                        $sql = "SELECT * FROM TacGia WHERE TenTG LIKE '%".$_GET['timkiem']."%'";    
                                     }
                                      else {
-                                        $sql = 'SELECT * FROM TruyenNgan WHERE 1 LIMIT '.$firstIndex.','.$limit;
+                                        $sql = 'SELECT * FROM TacGia WHERE 1 LIMIT '.$firstIndex.','.$limit;
                                     }
                                         $classList1 = executeResult($sql);
-                                        $sql = 'SELECT count(id) as total FROM TruyenNgan';
+                                        $sql = 'SELECT count(id) as total FROM TacGia';
                                         $countResult = executeSingleResult($sql);
                                         $count = $countResult['total'];
                                         $number = ceil($count/$limit);
                                         foreach ($classList1 as $class1) {
-                                            echo '<div class="col c-3">';
-                                            echo '<div class="picture">';
-                                            echo '<h2>'.$class1["TenTruyen"].'</h2>';
-                                            echo '<div class="index">';
-                                            echo '<span>'.(++$firstIndex).'</span>';
-                                            echo '</div>';
-                                            echo '<div class="picture__img">';
-                                            echo '<img class = "photo" src="photo/'.$class1["TrangBia"].'" >';
-                                            echo '</div>';
-                                            echo '<img src="../assets/img/label.png" alt="">';
-                                            echo '<div class="picture--text">';
-                                            echo '<span class="picture__text">Full &nbsp'.$class1['SoChuong'].''. '  Chương</span>';
-                                            echo '</div>';
-                                            echo '</div>';
-                                            echo '<span>Ten tac gia</span>';
-                                            echo  '<div class="picture__btn">';
-                                            echo        '<button  class= "btn1 btn-delete" onclick=\'window.open("../../assets/add/addLop.php?id='.$class1['id'].'","_self")\'>Xóa</button>';
-                                            echo         '<button class= "btn1 btn-setting" onclick="deleteClass('.$class1['id'].')">Sửa</button>';
-                                            echo     '</div>';
-                                            echo '</div>';
+                                            echo '<tr>
+                                                <td>'.(++$firstIndex).'</td>
+                                                <td>'.$class1['TenTG'].'</td>
+                                                <td>'.$class1['GioiTinh'].'</td>
+                                                <td>'.$class1['NamSinh'].'</td>
+                                                <td>'.$class1['QuocTich'].'</td>
+                                                <td><div class="btn1 btn-setting" onclick=\'window.open("../update/UpdateTG.php?id='.$class1['id'].'","_self")\'>Sửa</div></td>
+                                                <td><div class="btn1 btn-delete" onclick="deleteTG('.$class1['id'].')">Xóa</div></td>
+                                            </tr>
+                                        ';
 
                                         }
 
                                     ?>
-                           
+                                    </tbody>                            
+
+                                    </table>
 
                         </div>
                         <nav aria-label="Page navigation example" class ="pagination--absolute">
@@ -237,6 +217,21 @@
    
     </div>
     <script type="text/javascript" src="../main.js"></script>
+
+      <script type="text/javascript">
+        function deleteTG(id) {
+            var option = confirm('Bạn Có Muốn Xóa  Tác Giả Này Không?')
+            if(!option) {
+                return;
+            }
+            $.post('delete.php', {
+                        'id5': id
+             }, function(data) {
+                alert('Đã Xóa Thành Công');
+                location.reload();
+            })
+                }
+    </script>
 </body>
 
 </html>

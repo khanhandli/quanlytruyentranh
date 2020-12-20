@@ -239,17 +239,11 @@ body,html{
 	border-radius: 10px;
 }
 
-.picture__text::before {
-	content: "";
-    height: 14px;
-    width: 1px;
-    display: block;
-    background-color: black;
-    position: absolute;
-    top: 23%;
-    left: 81px;
-    transform: translateX(-50%);
+.picture__text > span {
+	border-left: 1px solid;
+	padding-left: 3px ;
 }
+
 
 @keyframes fadeIn {
     0% {
@@ -382,7 +376,6 @@ body,html{
 .input {
 	display: block;
     width: 40%;
-    height: calc(1em + .60rem + 2px);
     padding: .300rem 2.75rem;
     font-size: 1.2rem;
     font-weight: 400;
@@ -395,6 +388,18 @@ body,html{
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     margin: 10px 0;
 }
+select.input {
+    width: 58%;
+    height: 100%;
+    outline: none;
+    color: black;
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+
+button:focus {
+	outline:  none;
+}
 
 [type="file"] {
   height: 0;
@@ -402,6 +407,9 @@ body,html{
   width: 0;
 }
 
+.btn1:focus{
+	border-color: white;
+}
 
 [type="file"] + label {
   background: #666666;
@@ -586,7 +594,7 @@ a.page-link {
 }
 
 .title__function > label {
-	font-weight: 500;
+	font-weight: 700;
 	font-size: 2rem;
 	padding-right: 6px;
 	cursor: pointer;
@@ -610,4 +618,47 @@ a.page-link {
 
 #search:checked ~ .form-control1 {
 	opacity: 1;
+}
+
+.container-title > i {
+	font-size: 3.6rem;
+	font-weight: 500;
+	padding-right: 10px;
+}
+
+.btn1 {
+	cursor:  pointer;
+}
+.icon-FF9999 {
+	color: #FF9999;
+}
+
+.icon-009966 {
+	color: #009966;
+}
+
+.icon-336633 {
+	color: #336633;
+}
+
+.icon-003300 {
+	color: #990000;
+}
+
+.icon-008800 {
+	color: #008800;
+}
+
+th {
+	font-weight: 500;
+	font-size: 1.4rem;
+	color: #EB7153;
+}
+td,th {
+
+	text-align: center;
+}
+td {
+		font-weight: 400;
+	font-size: 1.3rem;
 }

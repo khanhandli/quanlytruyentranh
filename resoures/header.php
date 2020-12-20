@@ -33,7 +33,7 @@
                             <span>Huy Đạt DH8C6</span>
                             <ul>
                                 <li class="header__info--text">Hồ Sơ</li>
-                                <li class="header__info--text"><a href="">Thoát</a></li>
+                                <li class="header__info--text"><a href="../index.php">Thoát</a></li>
                             </ul>
                         </div>
                     </div>

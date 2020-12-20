@@ -1,5 +1,22 @@
 <?php 
     require_once('../resoures/header.php');
+    require_once('../resoures/dbhelp.php');
+    $id ='';
+    $tentruyen2  = $sochuong2 =$tentacgia2 = "";
+       if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+        
+        $sql = 'SELECT * FROM TruyenNgan WHERE id = '. $id;
+        $roomList = executeResult($sql);
+        if ($roomList != null && count($roomList) > 0) {
+            $room = $roomList[0];
+            $tentruyen2 = $room['TenTruyen'];
+            $sochuong2 = $room['SoChuong'];
+            $tentacgia2 = $room['TenTG'];
+        } else {
+
+        }
+    }
  ?>
         <div class="body">
         	<div class="grid wide">
@@ -37,7 +54,19 @@
                                     </div>
                                     <div class="form__input">
                                         <label for="tentacgia">Tên Tác Giả:</label>
-                                        <input class="input" type="text" id="tentacgia" name="tentacgia" value="<?=$tentacgia2?>">
+                                         <select class="input" name="tentacgia" id="tentacgia">
+                                                <option value="<?=$tentacgia?>"><?=$tentacgia?></option>
+                                                <?php 
+                                                        $sql = 'SELECT TenTG FROM TacGia';
+                                                    $employeeList = executeResult($sql);
+                                                    foreach ($employeeList as $epl) {
+                                                            echo '<option value= '.$epl['TenTG'].'>
+                                                                    '.$epl['TenTG'].'
+                                                                    </option>
+                                                                    '  ;                        
+                                                    }
+                                                ?>
+                                            </select>
                                     </div>
                                 </div>
                             </div>

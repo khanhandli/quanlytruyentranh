@@ -32,10 +32,10 @@
                 move_uploaded_file($tmp_name,$path.$anh);
         if ($id1 != '') {
             //update 
-            $sql = "UPDATE TruyenNgan SET  TenTruyen= '$tentruyen', TrangBia ='$anh',  SoChuong= '$sochuong',  TenTG= '$tentacgia' WHERE id = " .$id1;
+            $sql = "UPDATE TruyenTT SET  TenTruyen= '$tentruyen', TrangBia ='$anh',  SoChuong= '$sochuong',  TenTG= '$tentacgia' WHERE id = " .$id1;
         }else if($tentruyen != ''){ 
             //insert
-            $sql = "INSERT INTO TruyenNgan(TenTruyen,TrangBia,SoChuong,TenTG)
+            $sql = "INSERT INTO TruyenTT(TenTruyen,TrangBia,SoChuong,TenTG)
                 VALUES('$tentruyen', '$anh', '$sochuong', '$tentacgia')";
 
         }
@@ -81,13 +81,13 @@
                             <span>Huy Đạt DH8C6</span>
                             <ul>
                                 <li class="header__info--text">Hồ Sơ</li>
-                                <li class="header__info--text"><a href="">Thoát</a></li>
+                                <li class="header__info--text"><a href="../index.php">Thoát</a></li>
                             </ul>
                         </div>
                     </div>
                     <ul class="header-nav">
                         <li class="header-nav__item">
-                            <a href="../php/TN.php/" class="header-nav__item--text">Truyện Ngắn</a>
+                            <a href="../php/TN.php" class="header-nav__item--text">Truyện Ngắn</a>
                         </li>
                         <li class="header-nav__item">
                             <a href="../php/TC.php" class="header-nav__item--text">Truyện Cười</a>
@@ -118,8 +118,8 @@
                     </div>
                     <div class="c-9" style="position: relative;">
                         <div class="container-title">
-                            <img src="../assets/img/icon.png" alt="">
-                            <h1>Danh Sách Truyện Tiểu Thuyết</h1>
+                            <i class="far fa-certificate icon-336633"></i>
+                            <h1 class="icon-336633">Danh Sách Truyện Tiểu Thuyết</h1>
                             <div class="title__function">
                             <form action="" method="GET" class="form-timkiem">
                                 <input type="checkbox" hidden id="search"> 
@@ -127,7 +127,7 @@
                                 <button class="btn-timkiem">Tìm</button>
                             </form>
                             <label for="search" class="fas fa-search function--icon"></label>
-                            <a href="../update/UpdateTN.php" class="function--link"><i class="fas fa-plus"></i></a>
+                            <a href="../update/UpdateTTT.php" class="function--link"><i class="fas fa-plus"></i></a>
                         </div>
 
                         </div>
@@ -166,13 +166,13 @@
                             }
                             $firstIndex = ($page - 1) * $limit;
                                     if (isset($_GET['timkiem']) && $_GET['timkiem'] != '') {
-                                        $sql = "SELECT * FROM TruyenNgan WHERE TenTruyen LIKE '%".$_GET['timkiem']."%'";    
+                                        $sql = "SELECT * FROM TruyenTT WHERE TenTruyen LIKE '%".$_GET['timkiem']."%'";    
                                     }
                                      else {
-                                        $sql = 'SELECT * FROM TruyenNgan WHERE 1 LIMIT '.$firstIndex.','.$limit;
+                                        $sql = 'SELECT * FROM TruyenTT WHERE 1 LIMIT '.$firstIndex.','.$limit;
                                     }
                                         $classList1 = executeResult($sql);
-                                        $sql = 'SELECT count(id) as total FROM TruyenNgan';
+                                        $sql = 'SELECT count(id) as total FROM TruyenTT';
                                         $countResult = executeSingleResult($sql);
                                         $count = $countResult['total'];
                                         $number = ceil($count/$limit);
@@ -188,13 +188,13 @@
                                             echo '</div>';
                                             echo '<img src="../assets/img/label.png" alt="">';
                                             echo '<div class="picture--text">';
-                                            echo '<span class="picture__text">Full &nbsp'.$class1['SoChuong'].''. '  Chương</span>';
+                                            echo '<span class="picture__text">Full &nbsp'.'<span>'.$class1['SoChuong'].'</span>'.''. '  Chương</span>';
                                             echo '</div>';
                                             echo '</div>';
-                                            echo '<span>Ten tac gia</span>';
+                                            echo '<span>'.$class1['TenTG'].'</span>';
                                             echo  '<div class="picture__btn">';
-                                            echo        '<button  class= "btn1 btn-delete" onclick=\'window.open("../../assets/add/addLop.php?id='.$class1['id'].'","_self")\'>Xóa</button>';
-                                            echo         '<button class= "btn1 btn-setting" onclick="deleteClass('.$class1['id'].')">Sửa</button>';
+                                            echo         '<button class= "btn1 btn-setting" onclick="deleteTTT('.$class1['id'].')">Xóa</button>';
+                                            echo        '<button  class= "btn1 btn-delete" onclick=\'window.open("../update/UpdateTTT.php?id='.$class1['id'].'","_self")\'>Sửa</button>';
                                             echo     '</div>';
                                             echo '</div>';
 
@@ -238,6 +238,21 @@
    
     </div>
     <script type="text/javascript" src="../main.js"></script>
+
+    <script type="text/javascript">
+        function deleteTTT(id) {
+            var option = confirm('Bạn Có Muốn Xóa Không?')
+            if(!option) {
+                return;
+            }
+            $.post('delete.php', {
+                        'id3': id
+             }, function(data) {
+                alert('Đã Xóa Thành Công');
+                location.reload();
+            })
+                }
+    </script>
 </body>
 
 </html>

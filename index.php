@@ -1,48 +1,41 @@
-<?php 
-    require_once('resoures/header.php');
- ?>
-        <div class="body">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Website Quản Lý Truyện Tranh</title>
+    <link rel="stylesheet" href="assets/bootstrap-4.5.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/csslogin/form.css">
+    <link rel="stylesheet"
+        href="assets/fonts/fontawesome-pro-5.13.0/fontawesome-pro-5.13.0-web/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap&subset=vietnamese"
+        rel="stylesheet">
+        <script type="text/javascript" src="assets/js/jquery.js"></script>
+</head>
+<body>
+    <div class="wrapper fadeInDown">
+      <div id="formContent">
+        <!-- Tabs Titles -->
 
-        	<div class="grid wide">
-        		<div class="row">
-        			<div class="c-3">
-                         <?php 
-                            require_once('resoures/nav.php');
-                          ?>
-                    </div>
-                    <div class="c-9">
-                        <div class="container-title">
-                            <img src="assets/img/icon.png" alt="">
-                            <h1>Danh sách truyện Ngắn</h1>
-                        </div>
-                        <div class="row scroll">
-                            <div class="col c-3">
-                                <div class="picture">
-                                    <h2>Tấm Cám</h2>
-                                    <div class="index">
-                                        <span>1</span>
-                                    </div>
-                                    <div class="picture__img">
-                                        <img src="assets/img/anh1.jpeg" alt="">
-                                    </div>
-                                    <img src="assets/img/label.png" alt="">
-                                    <div class="picture--text">
-                                        <span class="picture__text">Full &nbsp13 Chuong</span>
-                                    </div>
-                                </div>
-                                <span>Ten tac gia</span>
+        <!-- Icon -->
+        <div class="fadeIn first">
+          <h1>Đăng Nhập</h1>
+        </div>
 
-                            </div>
-                           
+        <!-- Login Form -->
+        <form method="post" action="resoures/login.php">
+          <input type="text" id="login" class="fadeIn second" name="user" placeholder="Tên Đăng Nhập">
+          <input type="text" id="password" class="fadeIn third" name="password1" placeholder="Mật Khẩu">
+          <input type="submit" name="DN" class="fadeIn fourth" value="Log In">
+        </form>
 
-                        </div>
-                    </div>
-        		</div>
-            </div>
-    	</div>
-   
+        <!-- Remind Passowrd -->
+        <div id="formFooter">
+          <a class="underlineHover" href="#">Forgot Password?</a>
+        </div>
+
+      </div>
     </div>
-    <script type="text/javascript" src="main.js"></script>
 </body>
-
 </html>

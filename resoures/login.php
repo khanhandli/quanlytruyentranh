@@ -1,13 +1,13 @@
 <?php 
 
     if (isset($_POST['DN'])) {
-        $email = "";
+        $user = "";
         $password1 = "";
-        if ($_POST['email'] == NULL) {
-            echo "Email khong duoc de trong!";
+        if ($_POST['user'] == NULL) {
+            echo "user khong duoc de trong!";
             echo "</br>";
         } else {
-            $email = $_POST['email'];
+            $user = $_POST['user'];
             echo "</br>";}
 
         if ($_POST['password1'] == NULL) {
@@ -17,7 +17,7 @@
             $password1 = $_POST['password1'];
             echo "</br>";
         }
-        if ($email == "" && $password1 == "") {
+        if ($user == "" && $password1 == "") {
             echo "Khong duoc de trong";
             echo "</br>";
 
@@ -26,7 +26,7 @@
         $username = "root"; // Khai báo username
         $password = "";      // Khai báo password
         $server   = "localhost";   // Khai báo server
-        $dbname   = "QLPH";      // Khai báo database
+        $dbname   = "QLTT";      // Khai báo database
         // Kết nối database
         $connect = new mysqli($server, $username, $password, $dbname);
         //Nếu kết nối bị lỗi thì xuất báo lỗi và thoát.
@@ -34,22 +34,22 @@
         die("Không kết nối :" . $conn->connect_error);
         exit();}
         // dang nhap
-        $sql = "SELECT email,password FROM user";
+        $sql = "SELECT user,password FROM users";
         $result = mysqli_query($connect, $sql);
 
         if (mysqli_num_rows($result) > 0) {
           // output data of each row
-          $email1;
+          $user1;
           $password2;
           $a = 'tc';
           $b = '';
         if ($a == 'tc') {
           while($row = mysqli_fetch_assoc($result)) {
-                $email1 = $row["email"];
+                $user1 = $row["user"];
                 $password2 = $row["password"];
-            if ($email1 == $email && $password2 == $password1) {
+            if ($user1 == $user && $password2 == $password1) {
                 if (!$loggedIn) {
-                    header("Location: index.php");
+                    header("Location: ../php/home.php");
                     die();
             }
                 $b = 'a';
@@ -73,7 +73,7 @@
  ?>
 
  <?php
-        // if ($email == 'admin' && $password1 == '123') {
+        // if ($user == 'admin' && $password1 == '123') {
         //          if (!$loggedIn) {
         //              header("Location: index.php");
         //              die();

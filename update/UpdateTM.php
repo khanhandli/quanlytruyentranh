@@ -1,6 +1,23 @@
 <?php 
-    $active = 'active';
     require_once('../resoures/header.php');
+    require_once('../resoures/dbhelp.php');
+ 
+    $id ='';
+    $tentruyen2  = $sochuong2 =$tentacgia2 = "";
+       if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+        
+        $sql = 'SELECT * FROM TruyenMa WHERE id = '. $id;
+        $roomList = executeResult($sql);
+        if ($roomList != null && count($roomList) > 0) {
+            $room = $roomList[0];
+            $tentruyen2 = $room['TenTruyen'];
+            $sochuong2 = $room['SoChuong'];
+            $tentacgia2 = $room['TenTG'];
+        } else {
+
+        }
+    }
  ?>
         <div class="body">
         	<div class="grid wide">
@@ -12,10 +29,10 @@
                     </div>
                     <div class="c-9">
                         <div class="container-title">
-                            <i class="fa fa-bolt" style="color: #9966FF;font-size: 4rem;margin-right: 7px;"></i>
-                            <h1 style="color: #9966FF;">Cập Nhập Truyện Ma</h1>
+                            <i class="far fa-apple-alt" style="color: #FF9900;font-size: 4rem;margin-right: 7px;"></i>
+                            <h1 style="color: #FF9900;">Cập Nhập Truyện Ma</h1>
                         </div>
-                        <form class="form" action="../php/TM.php" method="post" enctype="multipart/form-data">
+                        <form style="background-color: #FF9900;" class="form" action="../php/TM.php" method="post" enctype="multipart/form-data">
                             <div class="row form-flex">
                                 <div class="c-6">
                                     <div class="form__input">
@@ -37,7 +54,19 @@
                                     </div>
                                     <div class="form__input">
                                         <label for="tentacgia">Tên Tác Giả:</label>
-                                        <input class="input" type="text" id="tentacgia" name="tentacgia" value="<?=$tentacgia2?>">
+                                         <select class="input" name="tentacgia" id="tentacgia">
+                                                <option value="<?=$tentacgia?>"><?=$tentacgia?></option>
+                                                <?php 
+                                                        $sql = 'SELECT TenTG FROM TacGia';
+                                                    $employeeList = executeResult($sql);
+                                                    foreach ($employeeList as $epl) {
+                                                            echo '<option value= '.$epl['TenTG'].'>
+                                                                    '.$epl['TenTG'].'
+                                                                    </option>
+                                                                    '  ;                        
+                                                    }
+                                                ?>
+                                            </select>
                                     </div>
                                 </div>
                             </div>

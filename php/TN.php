@@ -81,7 +81,7 @@
                             <span>Huy Đạt DH8C6</span>
                             <ul>
                                 <li class="header__info--text">Hồ Sơ</li>
-                                <li class="header__info--text"><a href="">Thoát</a></li>
+                                <li class="header__info--text"><a href="../index.php">Thoát</a></li>
                             </ul>
                         </div>
                     </div>
@@ -188,13 +188,13 @@
                                             echo '</div>';
                                             echo '<img src="../assets/img/label.png" alt="">';
                                             echo '<div class="picture--text">';
-                                            echo '<span class="picture__text">Full &nbsp'.$class1['SoChuong'].''. '  Chương</span>';
+                                            echo '<span class="picture__text">Full '.'<span>'.$class1['SoChuong'].'</span>'.''. '  Chương</span>';
                                             echo '</div>';
                                             echo '</div>';
-                                            echo '<span>Ten tac gia</span>';
+                                            echo '<span>'.$class1['TenTG'].'</span>';
                                             echo  '<div class="picture__btn">';
-                                            echo        '<button  class= "btn1 btn-delete" onclick=\'window.open("../../assets/add/addLop.php?id='.$class1['id'].'","_self")\'>Xóa</button>';
-                                            echo         '<button class= "btn1 btn-setting" onclick="deleteClass('.$class1['id'].')">Sửa</button>';
+                                            echo         '<button class= "btn1 btn-setting" onclick="deleteTN('.$class1['id'].')">Xóa</button>';
+                                            echo        '<button  class= "btn1 btn-delete" onclick=\'window.open("../update/UpdateTN.php?id='.$class1['id'].'","_self")\'>Sửa</button>';
                                             echo     '</div>';
                                             echo '</div>';
 
@@ -238,6 +238,21 @@
    
     </div>
     <script type="text/javascript" src="../main.js"></script>
+
+    <script type="text/javascript">
+        function deleteTN(id) {
+           var option = confirm('Bạn Có Muốn Xóa Không?')
+            if(!option) {
+                return;
+            }
+            $.post('delete.php', {
+                        'id': id
+             }, function(data) {
+                alert('Đã Xóa Thành Công');
+                location.reload();
+            })
+                }
+    </script>
 </body>
 
 </html>
