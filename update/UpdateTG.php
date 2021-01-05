@@ -15,6 +15,7 @@
             $gioitinh2 = $room['GioiTinh'];
             $namsinh2 = $room['NamSinh'];
             $quoctich2 = $room['QuocTich'];
+            
         } else {
 
         }

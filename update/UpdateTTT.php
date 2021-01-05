@@ -2,7 +2,7 @@
     require_once('../resoures/header.php');
     require_once('../resoures/dbhelp.php');
     $id ='';
-    $tentruyen2  = $sochuong2 =$tentacgia2 = "";
+    $tentruyen2  = $sochuong2 =$tentacgia2=$gia2 = "";
        if (isset($_GET['id'])) {
         $id = $_GET['id'];
         
@@ -13,6 +13,7 @@
             $tentruyen2 = $room['TenTruyen'];
             $sochuong2 = $room['SoChuong'];
             $tentacgia2 = $room['TenTG'];
+            $gia2 = $room['Gia'];
         } else {
 
         }
@@ -67,6 +68,10 @@
                                                     }
                                                 ?>
                                             </select>
+                                    </div>
+                                    <div class="form__input">
+                                        <label for="gia">Nhập Giá:</label>
+                                        <input class="input" type="text" id="gia" name="gia" value="<?=$gia2?>">
                                     </div>
                                 </div>
                             </div>

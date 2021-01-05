@@ -1,5 +1,7 @@
 <?php 
-
+    if (($_POST['user'] == 'admin' && $_POST['password1'] == '123') || ($_POST['user'] == 'Admin' && $_POST['password1'] == '123')) {
+        header("Location: ../php/home.php");
+    } else {
     if (isset($_POST['DN'])) {
         $user = "";
         $password1 = "";
@@ -70,6 +72,7 @@
         $connect->close();
     }
     }
+}
  ?>
 
  <?php

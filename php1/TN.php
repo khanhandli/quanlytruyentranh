@@ -1,60 +1,5 @@
 <?php 
     require_once('../resoures/dbhelp.php');
-    $upload_directory = __DIR__ . DIRECTORY_SEPARATOR . "photo/";
-    $id1 = $tentruyen  = $sochuong = $tentacgia =$gia = "";
-
-    if (!empty($_POST)) {
-        if (isset($_POST['tentruyen'])) {
-            $tentruyen = $_POST['tentruyen'];
-        }
-
-
-        if (isset($_POST['sochuong'])) {
-            $sochuong = $_POST['sochuong'];
-
-        }
-
-        if (isset($_POST['tentacgia'])) {
-            $tentacgia = $_POST['tentacgia'];
-
-        }
-        if (isset($_POST['gia'])) {
-            $gia = $_POST['gia'];
-
-        }
-        if (isset($_POST['id'])) {
-            $id1 = $_POST['id'];
-        }
-        $anh = $_FILES['anh']['name'];
-
-                if($anh != null)
-                {
-                $path = "photo/";
-                $tmp_name = $_FILES['anh']['tmp_name'];
-                $anh = $_FILES['anh']['name'];
-
-                move_uploaded_file($tmp_name,$path.$anh);
-        if ($id1 != '') {
-            //update 
-            $sql = "UPDATE TruyenTT SET  TenTruyen= '$tentruyen', TrangBia ='$anh',  SoChuong= '$sochuong',  TenTG= '$tentacgia',Gia = '$gia' WHERE id = " .$id1;
-            $sql1 = "UPDATE TruyenTH SET  TenTruyen= '$tentruyen', TrangBia ='$anh',  SoChuong= '$sochuong',  TenTG= '$tentacgia',Gia = '$gia' WHERE id = " .$id1;
-            $sql2 = "UPDATE GioHang SET  TenTruyen = '$tentruyen',SoChuong = '$sochuong',Anh ='$anh', Gia = '$gia' WHERE id = " .$id1;
-        }else if($tentruyen != ''){ 
-            //insert
-            $sql = "INSERT INTO TruyenTT(TenTruyen,TrangBia,SoChuong,TenTG,Gia)
-                VALUES('$tentruyen', '$anh', '$sochuong', '$tentacgia','$gia')";
-            $sql1 = "INSERT INTO TruyenTH(TenTruyen,TrangBia,SoChuong,TenTG,Gia)
-                VALUES('$tentruyen', '$anh', '$sochuong', '$tentacgia','$gia')";
-                $sql2 = "INSERT INTO GioHang(TenTruyen,SoChuong,Anh,Gia)
-                VALUES('$tentruyen','$sochuong',$anh','$gia')";
-
-        }
-    }
-         execute($sql);
-        execute($sql1);
-        execute($sql2);
-}
-
     
 ?>
 
@@ -90,7 +35,7 @@
                         </div>
                         <div class="header__info">
                             <i class="far fa-user-circle"></i>
-                            <span>Huy Đạt DH8C6</span>
+                            <span>Wellcome</span>
                             <ul>
                                 <li class="header__info--text">Hồ Sơ</li>
                                 <li class="header__info--text"><a href="../index.php">Thoát</a></li>
@@ -98,23 +43,23 @@
                         </div>
                     </div>
                     <ul class="header-nav">
-                        <li class="header-nav__item">
-                            <a href="../php/TN.php" class="header-nav__item--text">Truyện Ngắn</a>
-                        </li>
-                        <li class="header-nav__item">
-                            <a href="../php/TC.php" class="header-nav__item--text">Truyện Cười</a>
-                        </li>
-                        <li class="header-nav__item">
-                            <a href="../php/TM.php" class="header-nav__item--text">Truyện Ma</a>
-                        </li>
                         <li class="header-nav__item active">
-                            <a href="../php/TTT.php" class="header-nav__item--text">Truyện Tiểu Thuyết</a>
+                            <a href="../php1/TN.php/" class="header-nav__item--text">Truyện Ngắn</a>
                         </li>
                         <li class="header-nav__item">
-                            <a href="../php/TG.php" class="header-nav__item--text">Tác Giả</a>
+                            <a href="../php1/TC.php" class="header-nav__item--text">Truyện Cười</a>
                         </li>
                         <li class="header-nav__item">
-                            <a href="../php/TH.php" class="header-nav__item--text">Tổng hợp</a>
+                            <a href="../php1/TM.php" class="header-nav__item--text">Truyện Ma</a>
+                        </li>
+                        <li class="header-nav__item">
+                            <a href="../php1/TTT.php" class="header-nav__item--text">Truyện Tiểu Thuyết</a>
+                        </li>
+                        <li class="header-nav__item">
+                            <a href="../php1/TG.php" class="header-nav__item--text">Tác Giả</a>
+                        </li>
+                        <li class="header-nav__item">
+                            <a href="../php1/TH.php" class="header-nav__item--text">Tổng hợp</a>
                         </li>
                     </ul>
                 </div>
@@ -125,13 +70,13 @@
                 <div class="row">
                     <div class="c-3">
                          <?php 
-                            require_once('../resoures/nav.php');
+                           require_once('nav.php');
                           ?>
                     </div>
                     <div class="c-9" style="position: relative;">
                         <div class="container-title">
-                            <i class="far fa-certificate icon-336633"></i>
-                            <h1 class="icon-336633">Danh Sách Truyện Tiểu Thuyết</h1>
+                            <img src="../assets/img/icon.png" alt="">
+                            <h1>Danh sách truyện Ngắn</h1>
                             <div class="title__function">
                             <form action="" method="GET" class="form-timkiem">
                                 <input type="checkbox" hidden id="search"> 
@@ -139,7 +84,6 @@
                                 <button class="btn-timkiem">Tìm</button>
                             </form>
                             <label for="search" class="fas fa-search function--icon"></label>
-                            <a href="../update/UpdateTTT.php" class="function--link"><i class="fas fa-plus"></i></a>
                         </div>
 
                         </div>
@@ -178,13 +122,13 @@
                             }
                             $firstIndex = ($page - 1) * $limit;
                                     if (isset($_GET['timkiem']) && $_GET['timkiem'] != '') {
-                                        $sql = "SELECT * FROM TruyenTT WHERE TenTruyen LIKE '%".$_GET['timkiem']."%'";    
+                                        $sql = "SELECT * FROM TruyenNgan WHERE TenTruyen LIKE '%".$_GET['timkiem']."%'";    
                                     }
                                      else {
-                                        $sql = 'SELECT * FROM TruyenTT WHERE 1 LIMIT '.$firstIndex.','.$limit;
+                                        $sql = 'SELECT * FROM TruyenNgan WHERE 1 LIMIT '.$firstIndex.','.$limit;
                                     }
                                         $classList1 = executeResult($sql);
-                                        $sql = 'SELECT count(id) as total FROM TruyenTT';
+                                        $sql = 'SELECT count(id) as total FROM TruyenNgan';
                                         $countResult = executeSingleResult($sql);
                                         $count = $countResult['total'];
                                         $number = ceil($count/$limit);
@@ -200,7 +144,7 @@
                                             echo '</div>';
                                             echo '<img src="../assets/img/label.png" alt="">';
                                             echo '<div class="picture--text">';
-                                            echo '<span class="picture__text">Full &nbsp'.'<span>'.$class1['SoChuong'].'</span>'.''. '  Chương</span>';
+                                            echo '<span class="picture__text">Full '.'<span>'.$class1['SoChuong'].'</span>'.''. '  Chương</span>';
                                             echo '</div>';
                                             echo '</div>';
                                              echo '<span>Tác giả: '.$class1['TenTG'].'</span>';
@@ -208,8 +152,7 @@
                                             echo    number_format($class1['Gia'], 0, ",", ".") . ' VNĐ';
                                             echo'</span>';
                                             echo  '<div class="picture__btn">';
-                                            echo         '<button class= "btn1 btn-setting" onclick="deleteTTT('.$class1['id'].')">Xóa</button>';
-                                            echo        '<button  class= "btn1 btn-delete" onclick=\'window.open("../update/UpdateTTT.php?id='.$class1['id'].'","_self")\'>Sửa</button>';
+                                            echo        '<button  class= "btn1 btn-delete" onclick=\'window.open("detail.php?SoChuong='.$class1['SoChuong'].'")\'>Thêm Vào Giỏ Hàng</button>';
                                             echo     '</div>';
                                             echo '</div>';
 
@@ -253,21 +196,6 @@
    
     </div>
     <script type="text/javascript" src="../main.js"></script>
-
-    <script type="text/javascript">
-        function deleteTTT(id) {
-            var option = confirm('Bạn Có Muốn Xóa Không?')
-            if(!option) {
-                return;
-            }
-            $.post('delete.php', {
-                        'id3': id
-             }, function(data) {
-                alert('Đã Xóa Thành Công');
-                location.reload();
-            })
-                }
-    </script>
 </body>
 
 </html>

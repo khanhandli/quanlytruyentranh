@@ -1,7 +1,7 @@
 <?php 
     require_once('../resoures/dbhelp.php');
     $upload_directory = __DIR__ . DIRECTORY_SEPARATOR . "photo/";
-    $id1 = $tentruyen  = $sochuong = $tentacgia = "";
+    $id1 = $tentruyen  = $sochuong = $tentacgia =$gia= "";
 
     if (!empty($_POST)) {
         if (isset($_POST['tentruyen'])) {
@@ -16,6 +16,10 @@
 
         if (isset($_POST['tentacgia'])) {
             $tentacgia = $_POST['tentacgia'];
+
+        }
+        if (isset($_POST['gia'])) {
+            $gia = $_POST['gia'];
 
         }
         if (isset($_POST['id'])) {
@@ -33,14 +37,22 @@
         if ($id1 != '') {
             //update 
             $sql = "UPDATE TruyenNgan SET  TenTruyen= '$tentruyen', TrangBia ='$anh',  SoChuong= '$sochuong',  TenTG= '$tentacgia' WHERE id = " .$id1;
+            $sql1 = "UPDATE TruyenTH SET  TenTruyen= '$tentruyen', TrangBia ='$anh',  SoChuong= '$sochuong',  TenTG= '$tentacgia' WHERE id = " .$id1;
+            $sql2 = "UPDATE GioHang SET  TenTruyen = '$tentruyen',SoChuong = '$sochuong',Anh ='$anh', Gia = '$gia' WHERE id = " .$id1;
         }else if($tentruyen != ''){ 
             //insert
             $sql = "INSERT INTO TruyenNgan(TenTruyen,TrangBia,SoChuong,TenTG)
                 VALUES('$tentruyen', '$anh', '$sochuong', '$tentacgia')";
+                $sql1 = "INSERT INTO TruyenTH(TenTruyen,TrangBia,SoChuong,TenTG,Gia)
+                VALUES('$tentruyen', '$anh', '$sochuong', '$tentacgia','$gia')";
+                $sql2 = "INSERT INTO GioHang(TenTruyen,SoChuong,Anh,Gia)
+                VALUES('$tentruyen','$sochuong',$anh','$gia')";
 
         }
     }
-        execute($sql);
+         execute($sql);
+        execute($sql1);
+        execute($sql2);
 }
 
     
@@ -191,7 +203,10 @@
                                             echo '<span class="picture__text">Full '.'<span>'.$class1['SoChuong'].'</span>'.''. '  Chương</span>';
                                             echo '</div>';
                                             echo '</div>';
-                                            echo '<span>'.$class1['TenTG'].'</span>';
+                                             echo '<span>Tác giả: '.$class1['TenTG'].'</span>';
+                                             echo '<span>Giá: ';
+                                            echo    number_format($class1['Gia'], 0, ",", ".") . ' VNĐ';
+                                            echo'</span>';
                                             echo  '<div class="picture__btn">';
                                             echo         '<button class= "btn1 btn-setting" onclick="deleteTN('.$class1['id'].')">Xóa</button>';
                                             echo        '<button  class= "btn1 btn-delete" onclick=\'window.open("../update/UpdateTN.php?id='.$class1['id'].'","_self")\'>Sửa</button>';

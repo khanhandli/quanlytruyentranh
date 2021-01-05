@@ -143,7 +143,10 @@
                                             echo '<span class="picture__text">Full &nbsp'.'<span>'.$class1['SoChuong'].'</span>'.''. '  Chương</span>';
                                             echo '</div>';
                                             echo '</div>';
-                                            echo '<span>'.$class1['TenTG'].'</span>';
+                                            echo '<span>Tác giả: '.$class1['TenTG'].'</span>';
+                                            echo '<span>Giá: ';
+                                            echo    number_format($class1['Gia'], 0, ",", ".") . ' VNĐ';
+                                            echo'</span>';
                                             echo  '<div class="picture__btn">';
                                            
                                             echo     '</div>';

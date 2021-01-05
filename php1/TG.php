@@ -30,7 +30,7 @@
                         </div>
                         <div class="header__info">
                             <i class="far fa-user-circle"></i>
-                            <span>Huy Đạt DH8C6</span>
+                            <span>Wellcome</span>
                             <ul>
                                 <li class="header__info--text">Hồ Sơ</li>
                                 <li class="header__info--text"><a href="../index.php">Thoát</a></li>
@@ -39,66 +39,28 @@
                     </div>
                     <ul class="header-nav">
                         <li class="header-nav__item ">
-                            <a href="../php/TN.php" class="header-nav__item--text">Truyện Ngắn</a>
+                            <a href="../php1/TN.php" class="header-nav__item--text">Truyện Ngắn</a>
                         </li>
                         <li class="header-nav__item">
-                            <a href="../php/TC.php" class="header-nav__item--text">Truyện Cười</a>
+                            <a href="../php1/TC.php" class="header-nav__item--text">Truyện Cười</a>
                         </li>
                         <li class="header-nav__item">
-                            <a href="../php/TM.php" class="header-nav__item--text">Truyện Ma</a>
+                            <a href="../php1/TM.php" class="header-nav__item--text">Truyện Ma</a>
                         </li>
                         <li class="header-nav__item">
-                            <a href="../php/TTT.php" class="header-nav__item--text">Truyện Tiểu Thuyết</a>
+                            <a href="../php1/TTT.php" class="header-nav__item--text">Truyện Tiểu Thuyết</a>
                         </li>
                         <li class="header-nav__item active">
-                            <a href="../php/TG.php" class="header-nav__item--text">Tác Giả</a>
+                            <a href="../php1/TG.php" class="header-nav__item--text">Tác Giả</a>
                         </li>
                         <li class="header-nav__item">
-                            <a href="../php/TH.php" class="header-nav__item--text">Tổng hợp</a>
+                            <a href="../php1/TH.php" class="header-nav__item--text">Tổng hợp</a>
                         </li>
                     </ul>
                 </div>
         </header>
         <?php 
     require_once('../resoures/dbhelp.php');
-    $id1 = $tentg  = $gioitinh = $namsinh = $quoctich = "";
-
-    if (!empty($_POST)) {
-        if (isset($_POST['tentg'])) {
-            $tentg = $_POST['tentg'];
-        }
-
-
-        if (isset($_POST['gioitinh'])) {
-            $gioitinh = $_POST['gioitinh'];
-
-        }
-
-        if (isset($_POST['namsinh'])) {
-            $namsinh = $_POST['namsinh'];
-
-        }
-        if (isset($_POST['quoctich'])) {
-            $quoctich = $_POST['quoctich'];
-
-        }
-        if (isset($_POST['id'])) {
-            $id1 = $_POST['id'];
-        }
-     
-        if ($id1 != '') {
-            //update 
-            $sql = "UPDATE TacGia SET  TenTG= '$tentg', GioiTinh ='$gioitinh',  NamSinh= '$namsinh',  QuocTich= '$quoctich' WHERE id = " .$id1;
-        }else if($tentg != ''){ 
-            //insert
-            $sql = "INSERT INTO TacGia(TenTG,GioiTinh,NamSinh,QuocTich)
-                VALUES('$tentg', '$gioitinh', '$namsinh', '$quoctich');";
-
-        }
-    
-        execute($sql);
-}
-
     
 ?>
         <div class="body">
@@ -107,7 +69,7 @@
                 <div class="row">
                     <div class="c-3">
                          <?php 
-                            require_once('../resoures/nav.php');
+                            require_once('nav.php');
                           ?>
                     </div>
                     <div class="c-9" style="position: relative;">
@@ -121,7 +83,6 @@
                                 <button class="btn-timkiem">Tìm</button>
                             </form>
                             <label for="search" class="fas fa-search function--icon"></label>
-                            <a href="../update/UpdateTG.php" class="function--link"><i class="fas fa-plus"></i></a>
                         </div>
 
                         </div>
@@ -170,8 +131,6 @@
                                                 <td>'.$class1['GioiTinh'].'</td>
                                                 <td>'.$class1['NamSinh'].'</td>
                                                 <td>'.$class1['QuocTich'].'</td>
-                                                <td><div class="btn1 btn-setting" onclick=\'window.open("../update/UpdateTG.php?id='.$class1['id'].'","_self")\'>Sửa</div></td>
-                                                <td><div class="btn1 btn-delete" onclick="deleteTG('.$class1['id'].')">Xóa</div></td>
                                             </tr>
                                         ';
 
@@ -218,20 +177,6 @@
     </div>
     <script type="text/javascript" src="../main.js"></script>
 
-      <script type="text/javascript">
-        function deleteTG(id) {
-            var option = confirm('Bạn Có Muốn Xóa  Tác Giả Này Không?')
-            if(!option) {
-                return;
-            }
-            $.post('delete.php', {
-                        'id5': id
-             }, function(data) {
-                alert('Đã Xóa Thành Công');
-                location.reload();
-            })
-                }
-    </script>
 </body>
 
 </html>

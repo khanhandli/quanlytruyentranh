@@ -25,14 +25,15 @@
 
         <!-- Login Form -->
         <form method="post" action="resoures/login.php">
+          
           <input type="text" id="login" class="fadeIn second" name="user" placeholder="Tên Đăng Nhập">
-          <input type="text" id="password" class="fadeIn third" name="password1" placeholder="Mật Khẩu">
-          <input type="submit" name="DN" class="fadeIn fourth" value="Log In">
+          <input type="password" id="password" class="fadeIn third" name="password1" placeholder="Mật Khẩu">
+          <input type="submit" name="DN" class="fadeIn fourth" value="Đănh Nhập">
         </form>
 
         <!-- Remind Passowrd -->
         <div id="formFooter">
-          <a class="underlineHover" href="#">Forgot Password?</a>
+          <a class="underlineHover" href="index1.php">Đăng ký thành viên</a>
         </div>
 
       </div>
