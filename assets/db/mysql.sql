@@ -90,3 +90,17 @@ CREATE TABLE TacGia(
 
 INSERT INTO TacGia(TenTG,GioiTinh,NamSinh,QuocTich)
     VALUES('Nhiều-Tác-Giả','NAM','2000','VN');
+
+CREATE TABLE donhang(id INT PRIMARY KEY AUTO_INCREMENT
+    , name VARCHAR(255), 
+    phone VARCHAR(255), 
+    address VARCHAR(255), 
+    note VARCHAR(255), 
+    total INT, 
+    created_time DATETIME, 
+    last_updated DATETIME);
+
+
+
+
+

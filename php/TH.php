@@ -53,6 +53,9 @@
                         <li class="header-nav__item">
                             <a href="../php/TG.php" class="header-nav__item--text">Tác Giả</a>
                         </li>
+                        <li class="header-nav__item">
+                            <a href="../php/DH.php" class="header-nav__item--text">DS Đơn Hàng</a>
+                        </li>
                         <li class="header-nav__item active">
                             <a href="../php/TH.php" class="header-nav__item--text">Tổng hợp</a>
                         </li>

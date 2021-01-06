@@ -30,7 +30,7 @@
                         </div>
                         <div class="header__info">
                             <i class="far fa-user-circle"></i>
-                            <span>Wellcome</span>
+                            <span>Huy Đạt DH8C6</span>
                             <ul>
                                 <li class="header__info--text">Hồ Sơ</li>
                                 <li class="header__info--text"><a href="../index.php">Thoát</a></li>
@@ -39,29 +39,31 @@
                     </div>
                     <ul class="header-nav">
                         <li class="header-nav__item ">
-                            <a href="../php1/TN.php" class="header-nav__item--text">Truyện Ngắn</a>
+                            <a href="../php/TN.php" class="header-nav__item--text">Truyện Ngắn</a>
                         </li>
                         <li class="header-nav__item">
-                            <a href="../php1/TC.php" class="header-nav__item--text">Truyện Cười</a>
+                            <a href="../php/TC.php" class="header-nav__item--text">Truyện Cười</a>
                         </li>
                         <li class="header-nav__item">
-                            <a href="../php1/TM.php" class="header-nav__item--text">Truyện Ma</a>
+                            <a href="../php/TM.php" class="header-nav__item--text">Truyện Ma</a>
                         </li>
                         <li class="header-nav__item">
-                            <a href="../php1/TTT.php" class="header-nav__item--text">Truyện Tiểu Thuyết</a>
+                            <a href="../php/TTT.php" class="header-nav__item--text">Truyện Tiểu Thuyết</a>
+                        </li>
+                        <li class="header-nav__item">
+                            <a href="../php/TG.php" class="header-nav__item--text">Tác Giả</a>
                         </li>
                         <li class="header-nav__item active">
-                            <a href="../php1/TG.php" class="header-nav__item--text">Tác Giả</a>
+                            <a href="../php/DH.php" class="header-nav__item--text">DS Đơn Hàng</a>
                         </li>
                         <li class="header-nav__item">
-                            <a href="../php1/TH.php" class="header-nav__item--text">Tổng hợp</a>
+                            <a href="../php/TH.php" class="header-nav__item--text">Tổng hợp</a>
                         </li>
                     </ul>
                 </div>
         </header>
         <?php 
     require_once('../resoures/dbhelp.php');
-    
 ?>
         <div class="body">
 
@@ -69,17 +71,17 @@
                 <div class="row">
                     <div class="c-3">
                          <?php 
-                            require_once('nav.php');
+                            require_once('../resoures/nav.php');
                           ?>
                     </div>
                     <div class="c-9" style="position: relative;">
                         <div class="container-title">
                             <img src="../assets/img/icon.png" alt="">
-                            <h1>Danh Sách Tác Giả</h1>
+                            <h1>Danh Sách Đơn Hàng</h1>
                             <div class="title__function">
                             <form action="" method="GET" class="form-timkiem">
                                 <input type="checkbox" hidden id="search"> 
-                                <input type="text" class="form-control1" name="timkiem" placeholder="Tìm kiếm tên tác giả">            
+                                <input type="text" class="form-control1" name="timkiem" placeholder="Tìm kiếm tên khách hàng">            
                                 <button class="btn-timkiem">Tìm</button>
                             </form>
                             <label for="search" class="fas fa-search function--icon"></label>
@@ -91,12 +93,13 @@
                                 <thead>
                                     <tr>
                                         <th>STT</th>
-                                        <th>Tên Tác Giả</th>
-                                        <th>Giới Tính</th>
-                                        <th>Năm Sinh</th>
-                                        <th>Quốc Tịch</th>
-                                        <th></th>
-                                        <th></th>
+                                        <th>Tên Người Đặt</th>
+                                        <th>Số Điện Thoại</th>
+                                        <th>Địa Chỉ</th>
+                                        <th>Ghi Chú</th>
+                                        <th>Giá Tiền</th>
+                                        <th>Ngày mua</th>
+                                      
                                     </tr>
                                </thead>
                                 <tbody>
@@ -114,23 +117,26 @@
                             }
                             $firstIndex = ($page - 1) * $limit;
                                     if (isset($_GET['timkiem']) && $_GET['timkiem'] != '') {
-                                        $sql = "SELECT * FROM TacGia WHERE TenTG LIKE '%".$_GET['timkiem']."%'";    
+                                        $sql = "SELECT * FROM donhang WHERE name LIKE '%".$_GET['timkiem']."%'";    
                                     }
                                      else {
-                                        $sql = 'SELECT * FROM TacGia WHERE 1 LIMIT '.$firstIndex.','.$limit;
+                                        $sql = 'SELECT * FROM donhang WHERE 1 LIMIT '.$firstIndex.','.$limit;
                                     }
                                         $classList1 = executeResult($sql);
-                                        $sql = 'SELECT count(id) as total FROM TacGia';
+                                        $sql = 'SELECT count(id) as total FROM donhang';
                                         $countResult = executeSingleResult($sql);
                                         $count = $countResult['total'];
                                         $number = ceil($count/$limit);
                                         foreach ($classList1 as $class1) {
                                             echo '<tr>
                                                 <td>'.(++$firstIndex).'</td>
-                                                <td>'.$class1['TenTG'].'</td>
-                                                <td>'.$class1['GioiTinh'].'</td>
-                                                <td>'.$class1['NamSinh'].'</td>
-                                                <td>'.$class1['QuocTich'].'</td>
+                                                <td>'.$class1['name'].'</td>
+                                                <td>'.$class1['phone'].'</td>
+                                                <td>'.$class1['address'].'</td>
+                                                <td>'.$class1['note'].'</td>
+                                                <td>'.$class1['total'].'</td>
+                                                <td>'.$class1['created_time'].'</td>
+                                                
                                             </tr>
                                         ';
 
@@ -177,6 +183,20 @@
     </div>
     <script type="text/javascript" src="../main.js"></script>
 
+      <script type="text/javascript">
+        function deleteTG(id) {
+            var option = confirm('Bạn Có Muốn Xóa  Tác Giả Này Không?')
+            if(!option) {
+                return;
+            }
+            $.post('delete.php', {
+                        'id5': id
+             }, function(data) {
+                alert('Đã Xóa Thành Công');
+                location.reload();
+            })
+                }
+    </script>
 </body>
 
 </html>

@@ -54,6 +54,9 @@
                             <a href="../php/TG.php" class="header-nav__item--text">Tác Giả</a>
                         </li>
                         <li class="header-nav__item">
+                            <a href="../php/DH.php" class="header-nav__item--text">DS Đơn Hàng</a>
+                        </li>
+                        <li class="header-nav__item">
                             <a href="../php/TH.php" class="header-nav__item--text">Tổng hợp</a>
                         </li>
                     </ul>
@@ -117,7 +120,7 @@
                             <div class="title__function">
                             <form action="" method="GET" class="form-timkiem">
                                 <input type="checkbox" hidden id="search"> 
-                                <input type="text" class="form-control1" name="timkiem" placeholder="Tìm kiếm tên lớp học">            
+                                <input type="text" class="form-control1" name="timkiem" placeholder="Tìm kiếm tên tác giả">            
                                 <button class="btn-timkiem">Tìm</button>
                             </form>
                             <label for="search" class="fas fa-search function--icon"></label>

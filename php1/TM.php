@@ -145,7 +145,7 @@ require_once('../resoures/dbhelp.php');
                                             echo '<span>'.(++$firstIndex).'</span>';
                                             echo '</div>';
                                             echo '<div class="picture__img">';
-                                            echo '<img class = "photo" src="photo/'.$class1["TrangBia"].'" >';
+                                            echo '<img class = "photo" src="../php/photo/'.$class1["TrangBia"].'" >';
                                             echo '</div>';
                                             echo '<img src="../assets/img/label.png" alt="">';
                                             echo '<div class="picture--text">';

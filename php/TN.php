@@ -36,13 +36,13 @@
                 move_uploaded_file($tmp_name,$path.$anh);
         if ($id1 != '') {
             //update 
-            $sql = "UPDATE TruyenNgan SET  TenTruyen= '$tentruyen', TrangBia ='$anh',  SoChuong= '$sochuong',  TenTG= '$tentacgia' WHERE id = " .$id1;
+            $sql = "UPDATE TruyenNgan SET  TenTruyen= '$tentruyen', TrangBia ='$anh',  SoChuong= '$sochuong',  TenTG= '$tentacgia',Gia = '$gia' WHERE id = " .$id1;
             $sql1 = "UPDATE TruyenTH SET  TenTruyen= '$tentruyen', TrangBia ='$anh',  SoChuong= '$sochuong',  TenTG= '$tentacgia' WHERE id = " .$id1;
             $sql2 = "UPDATE GioHang SET  TenTruyen = '$tentruyen',SoChuong = '$sochuong',Anh ='$anh', Gia = '$gia' WHERE id = " .$id1;
         }else if($tentruyen != ''){ 
             //insert
-            $sql = "INSERT INTO TruyenNgan(TenTruyen,TrangBia,SoChuong,TenTG)
-                VALUES('$tentruyen', '$anh', '$sochuong', '$tentacgia')";
+            $sql = "INSERT INTO TruyenNgan(TenTruyen,TrangBia,SoChuong,TenTG,Gia)
+                VALUES('$tentruyen', '$anh', '$sochuong', '$tentacgia','$gia')";
                 $sql1 = "INSERT INTO TruyenTH(TenTruyen,TrangBia,SoChuong,TenTG,Gia)
                 VALUES('$tentruyen', '$anh', '$sochuong', '$tentacgia','$gia')";
                 $sql2 = "INSERT INTO GioHang(TenTruyen,SoChuong,Anh,Gia)
@@ -112,6 +112,9 @@
                         </li>
                         <li class="header-nav__item">
                             <a href="../php/TG.php" class="header-nav__item--text">Tác Giả</a>
+                        </li>
+                        <li class="header-nav__item">
+                            <a href="../php/DH.php" class="header-nav__item--text">DS Đơn Hàng</a>
                         </li>
                         <li class="header-nav__item">
                             <a href="../php/TH.php" class="header-nav__item--text">Tổng hợp</a>

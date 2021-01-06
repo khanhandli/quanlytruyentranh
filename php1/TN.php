@@ -44,7 +44,7 @@
                     </div>
                     <ul class="header-nav">
                         <li class="header-nav__item active">
-                            <a href="../php1/TN.php/" class="header-nav__item--text">Truyện Ngắn</a>
+                            <a href="../php1/TN.php" class="header-nav__item--text">Truyện Ngắn</a>
                         </li>
                         <li class="header-nav__item">
                             <a href="../php1/TC.php" class="header-nav__item--text">Truyện Cười</a>
@@ -140,7 +140,7 @@
                                             echo '<span>'.(++$firstIndex).'</span>';
                                             echo '</div>';
                                             echo '<div class="picture__img">';
-                                            echo '<img class = "photo" src="photo/'.$class1["TrangBia"].'" >';
+                                            echo '<img class = "photo" src="../php/photo/'.$class1["TrangBia"].'" >';
                                             echo '</div>';
                                             echo '<img src="../assets/img/label.png" alt="">';
                                             echo '<div class="picture--text">';
