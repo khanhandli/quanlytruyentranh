@@ -30,7 +30,7 @@ FOR EACH ROW
 
 
     CREATE TABLE TruyenTH(
-    id INT,
+    id INT PRIMARY KEY AUTO_INCREMENT,
     TenTruyen VARCHAR(255),
     TrangBia VARCHAR(255),
     SoChuong VARCHAR(255),

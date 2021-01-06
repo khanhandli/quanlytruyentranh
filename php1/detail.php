@@ -21,8 +21,7 @@
         include './connect_db.php';
         $result = mysqli_query($con, "SELECT * FROM `GioHang` WHERE `SoChuong` = ".$_GET['SoChuong']);
         $product = mysqli_fetch_assoc($result);
-        $imgLibrary = mysqli_query($con, "SELECT * FROM `img` WHERE `id` = ".$_GET['id']);
-        $product['images'] = mysqli_fetch_all($imgLibrary, MYSQLI_ASSOC);
+        // $imgLibrary = mysqli_query($con, "SELECT * FROM `img` WHERE `SoChuong` = ".$_GET['SoChuong']);
         ?>
         <div class="container">
                     <a href="TN.php"><-Quay lại</a>

@@ -1,5 +1,5 @@
 <?php 
-    require_once('../resoures/header.php');
+    require_once('header.php');
     require_once('../resoures/dbhelp.php');
 
  ?>
